@@ -17,8 +17,12 @@ FSJS project 1 - A Random Quote Generator
 ***/
 
 var quotes = [
-
-
+ {
+    quote: '',
+    source: '',
+    citation: '',
+    year: '',
+ }
   
 ];
 
