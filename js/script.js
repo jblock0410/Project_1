@@ -17,13 +17,42 @@ FSJS project 1 - A Random Quote Generator
 ***/
 
 var quotes = [
- {
-    quote: '',
-    source: '',
-    citation: '',
-    year: '',
- }
-  
+  {
+    quote: "Modesty is my best quality."
+    source: "Jack Benny"
+  },
+  {
+    quote: "The expert in anything was once a beginner."
+    source: "Anonymous"
+  },  
+  {
+    quote: "Okay, I'm shouting! I'm shouting! I'm shouting! I'm shouting!"
+    source: "Wadsworth, the Butler",
+    citation: "Clue",
+    year: 1985
+  },
+  {
+    quote: "Beauty will save the world."
+    source: "Prince Myskin",
+    citation: "The Idiot - Fyodor Dostoevsky",
+    year: 1869
+  },
+  {
+    quote: "Bad cannot succeed even in being bad as truly as good is good."
+    source: "The Teacher",
+    citation: "The Great Divorce - C.S. Lewis",
+    year: 1946
+  },
+  {
+    quote: "All animals are equal, but some animals are more equal than others."
+    source: "The Pigs",
+    citation: "Animal Farm - George Orwell",
+    year: 1945
+  }
+  {
+    quote: "One good thing about music: when it hits you, you feel no pain."
+    source: "Bob Marley"
+  }
 ];
 
 
