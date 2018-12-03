@@ -5,7 +5,7 @@ FSJS project 1 - A Random Quote Generator
 
 
 
-/* Array of Random Quotes */
+// Array of Random Quotes 
 var quotes = [
   {
     quote: "Modesty is my best quality.",
@@ -46,7 +46,7 @@ var quotes = [
 ];
 
 
-/* Generates random number to select random quote from array */
+// Generates random number to select random quote from array 
 function getRandomQuote(array) {
   var randomNumber = Math.floor(Math.random() * quotes.length);
   return quotes[randomNumber];
@@ -54,25 +54,23 @@ function getRandomQuote(array) {
 
 
 
-/***
-  Create the `printQuote` function to: 
-
-   - use conditionals to make sure the optional properties exist before 
-     they are added to the HTML string.
-
-***/
+// Writes string to the DOM
 function printQuote() {
   var generateQuote = getRandomQuote(quotes);
   var stringOfQuoteProperties = '<p class="quote">' + generateQuote.quote + '</p>';
   stringOfQuoteProperties += '<p class="source">' + generateQuote.source;
 
-  if (generateQuote.citation !== undefined || generateQuote.year !== undefined) {
-  stringOfQuoteProperties += '<span class="citation">' + generateQuote.citation + '</span>';
-  stringOfQuoteProperties += '<span class="year">' + generateQuote.year + '</span>' + '</p>';
-  } 
+    // Conditional ensuring the citation and year are not included if undefined
+    if (generateQuote.citation !== undefined || generateQuote.year !== undefined) {
+    stringOfQuoteProperties += '<span class="citation">' + generateQuote.citation + '</span>';
+    stringOfQuoteProperties += '<span class="year">' + generateQuote.year + '</span>' + '</p>';
+    } else {
+      // Concats the closing p tag after source if the conditional does not run
+      stringOfQuoteProperties += '</p>';
+    }
+
   document.getElementById('quote-box').innerHTML = stringOfQuoteProperties;
 };
-
 printQuote();
 
 
