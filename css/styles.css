@@ -43,7 +43,7 @@ body {
 }
 
 .source {
-  font-size: 1.25rem;;
+  font-size: 1.25rem;
   letter-spacing: 0.05em;
   line-height: 1.1;
   text-align: right;
@@ -67,6 +67,17 @@ body {
   content: ", ";
   font-style: normal;
 }
+
+/* Add style to the tag property ------------------------------------------- */
+.tag {
+  font-size: .9rem;
+}
+
+.tag:before {
+  content: " ";
+  font-style: normal;
+}
+/* End of tag property styling --------------------------------------------- */
 
 #loadQuote {
   position: fixed;
