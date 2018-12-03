@@ -3,66 +3,54 @@ Treehouse Techdegree:
 FSJS project 1 - A Random Quote Generator
 ******************************************/
 
-// Study guide for this project - https://drive.google.com/file/d/1s5grutGuQFwJcQP8bFwEI69Q8FCkGdDk/view?usp=sharing
 
 
-/*** 
-  Create the array of quote objects and name it `quotes`.
-  Add at least five quote objects to the `quotes` array.
-  Give each quote object a `quote` and `source` property.
-
-  Recommended: 
-    - Add at least one `year` and/or `citation` property to at least one 
-      quote object.
-***/
-
+/* Array of Random Quotes */
 var quotes = [
   {
-    quote: "Modesty is my best quality."
-    source: "Jack Benny"
+    quote: "Modesty is my best quality.",
+    source: "Jack Benny",
   },
   {
-    quote: "The expert in anything was once a beginner."
-    source: "Anonymous"
+    quote: "The expert in anything was once a beginner.",
+    source: "Anonymous",
   },  
   {
-    quote: "Okay, I'm shouting! I'm shouting! I'm shouting! I'm shouting!"
+    quote: "Okay, I'm shouting! I'm shouting! I'm shouting! I'm shouting!",
     source: "Wadsworth, the Butler",
     citation: "Clue",
-    year: 1985
+    year: 1985,
   },
   {
-    quote: "Beauty will save the world."
+    quote: "Beauty will save the world.",
     source: "Prince Myskin",
     citation: "The Idiot - Fyodor Dostoevsky",
-    year: 1869
+    year: 1869,
   },
   {
-    quote: "Bad cannot succeed even in being bad as truly as good is good."
+    quote: "Bad cannot succeed even in being bad as truly as good is good.",
     source: "The Teacher",
     citation: "The Great Divorce - C.S. Lewis",
-    year: 1946
+    year: 1946,
   },
   {
-    quote: "All animals are equal, but some animals are more equal than others."
+    quote: "All animals are equal, but some animals are more equal than others.",
     source: "The Pigs",
     citation: "Animal Farm - George Orwell",
-    year: 1945
-  }
+    year: 1945,
+  },
   {
-    quote: "One good thing about music: when it hits you, you feel no pain."
+    quote: "One good thing about music: when it hits you, you feel no pain.",
     source: "Bob Marley"
   }
 ];
 
 
-/***
-  Create the `getRandomQuote` function to:
-   - generate a random number 
-   - use the random number to `return` a random quote object from the 
-     `quotes` array.
-***/
-
+/* Generates random number to select random quote from array */
+function getRandomQuote(array) {
+  var randomNumber = Math.floor(Math.random() * quotes.length);
+  return quotes[randomNumber];
+};
 
 
 
@@ -75,8 +63,15 @@ var quotes = [
      they are added to the HTML string.
    - set the `innerHTML` of the `quote-box` div to the HTML string. 
 ***/
-
-
+function printQuote() {
+  var generateQuote = getRandomQuote(quotes);
+  var stringOfQuoteProperties = '<p class="quote">' + generateQuote.quote + '</p>' + 
+                                '<p class="source">' + generateQuote.source + 
+                                '<span class="citation">' + generateQuote.citation + '</span>' +
+                                '<span class="year">' + generateQuote.year + '</span>' + '</p>';
+  document.getElementById('quote-box').innerHTML = stringOfQuoteProperties;
+};
+printQuote();
 
 
 /***
@@ -86,7 +81,7 @@ var quotes = [
   comment.
 ***/
 
-document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+//document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
