@@ -9,7 +9,7 @@ FSJS project 1 - A Random Quote Generator
 var quotes = [
   {
     quote: "Modesty is my best quality.",
-    source: "Jack Benny",
+    source: "Jack Benny", 
   },
   {
     quote: "The expert in anything was once a beginner.",
@@ -17,26 +17,26 @@ var quotes = [
   },  
   {
     quote: "Okay, I'm shouting! I'm shouting! I'm shouting! I'm shouting!",
-    source: "Wadsworth, the Butler",
+    source: "Wadsworth",
     citation: "Clue",
     year: 1985,
   },
   {
     quote: "Beauty will save the world.",
-    source: "Prince Myskin",
-    citation: "The Idiot - Fyodor Dostoevsky",
+    source: "Fyodor Dostoevsky",
+    citation: "The Idiot",
     year: 1869,
   },
   {
     quote: "Bad cannot succeed even in being bad as truly as good is good.",
     source: "The Teacher",
-    citation: "The Great Divorce - C.S. Lewis",
+    citation: "The Great Divorce",
     year: 1946,
   },
   {
     quote: "All animals are equal, but some animals are more equal than others.",
-    source: "The Pigs",
-    citation: "Animal Farm - George Orwell",
+    source: "George Orwell",
+    citation: "Animal Farm",
     year: 1945,
   },
   {
@@ -56,21 +56,23 @@ function getRandomQuote(array) {
 
 /***
   Create the `printQuote` function to: 
-   - call the `getRandomQuote` function and assign it to a variable.
-   - use the properties of the quote object stored in the variable to 
-     create your HTML string.
+
    - use conditionals to make sure the optional properties exist before 
      they are added to the HTML string.
-   - set the `innerHTML` of the `quote-box` div to the HTML string. 
+
 ***/
 function printQuote() {
   var generateQuote = getRandomQuote(quotes);
-  var stringOfQuoteProperties = '<p class="quote">' + generateQuote.quote + '</p>' + 
-                                '<p class="source">' + generateQuote.source + 
-                                '<span class="citation">' + generateQuote.citation + '</span>' +
-                                '<span class="year">' + generateQuote.year + '</span>' + '</p>';
+  var stringOfQuoteProperties = '<p class="quote">' + generateQuote.quote + '</p>';
+  stringOfQuoteProperties += '<p class="source">' + generateQuote.source;
+
+  if (generateQuote.citation !== undefined || generateQuote.year !== undefined) {
+  stringOfQuoteProperties += '<span class="citation">' + generateQuote.citation + '</span>';
+  stringOfQuoteProperties += '<span class="year">' + generateQuote.year + '</span>' + '</p>';
+  } 
   document.getElementById('quote-box').innerHTML = stringOfQuoteProperties;
 };
+
 printQuote();
 
 
