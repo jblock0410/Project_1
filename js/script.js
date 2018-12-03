@@ -3,6 +3,7 @@
   Jeffrey J. Block
 */
 
+/* BEGIN LISTING OF ARRAYS ---------------------------------------------------- */
 
 // Array of Random Quotes 
 var quotes = [
@@ -52,14 +53,35 @@ var quotes = [
 ];
 
 
-// Generates random number to select random quote from array 
+// Array of seven background colors
+var backgroundColor = [
+  '#4858AB', // Darker blue
+  '#A13225', // Red
+  '#E38C35', // Orange
+  '#EB8E5C', // Peach
+  '#8C9990', // Gray
+  '#006126', // Dark Green
+  '#61235F'  // Dark Purple 
+];
+
+/* END OF ARRAY LISTINGS ----------------------------------------------------- */
+
+
+
+
+
+/* BEGIN QUOTE SELECTION AND DISPLAY FUNCTIONS ------------------------------- */
+
+// Generates random number to select random quote from 'quotes' array 
 function getRandomQuote(array) {
   var randomNumber = Math.floor(Math.random() * quotes.length);
   return quotes[randomNumber];
 };
 
+// Sets interval so quote automatically changes every 20 seconds
+var changeQuote = setInterval(printQuote, 20000);
 
-// Writes string to the DOM
+// String concatenation
 function printQuote() {
   var generateQuote = getRandomQuote(quotes);
   var stringOfQuoteProperties = '<p class="quote">' + generateQuote.quote + '</p>';
@@ -78,11 +100,43 @@ function printQuote() {
   // Prints string of quote properties 
   document.getElementById('quote-box').innerHTML = stringOfQuoteProperties;
 };
-
-
-// Runs printQuote() function on initial page load
+// Runs function on initial page load
 printQuote();
 
+/* END OF QUOTE SELECTION AND DISPLAY FUNCTIONS -------------------------------*/
 
-// Sets event listener to enable button to load new quote
+
+
+
+
+/* BEGIN BACKGROUND COLOR SELECTION FUNCTIONS ---------------------------------*/
+
+// Generates random number to select random color from 'backgroundColor' array 
+function getRandomColor(array) {
+  var randomColor = Math.floor(Math.random() * backgroundColor.length);
+  return backgroundColor[randomColor];
+};
+// Sets interval so background changes every 20 seconds
+var changeColor = setInterval(setBackgroundColor, 20000);
+// Runs background color change
+function setBackgroundColor() {
+  var generateColor = getRandomColor(backgroundColor);
+  document.querySelector("body").style.background = generateColor;
+}
+// Runs function on initial page load
+setBackgroundColor();
+
+/* END OF BACKGROUND COLOR SELECTION FUNCTIONS --------------------------------*/
+
+
+
+
+
+/* BEGIN BUTTON CLICK EVENT LISTENERS -----------------------------------------*/
+
+// Sets click event listener to enable button to load new quote
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+// Sets click event listener to enable button to load random background color
+document.getElementById('loadQuote').addEventListener("click", setBackgroundColor, false);
+
+/* END OF BUTTON CLICK EVENT LISTENERS ----------------------------------------*/
