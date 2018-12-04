@@ -88,7 +88,7 @@ function printQuote() {
   stringOfQuoteProperties += '<p class="source">' + generateQuote.source;
 
     // Conditional ensuring the citation and year are printed if existant in object
-    if (generateQuote.citation !== undefined || generateQuote.year !== undefined) {
+    if (generateQuote.citation || generateQuote.year) {
     stringOfQuoteProperties += '<span class="citation">' + generateQuote.citation + '</span>';
     stringOfQuoteProperties += '<span class="year">' + generateQuote.year + '</span>';
     } 
