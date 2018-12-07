@@ -78,8 +78,6 @@ function getRandomQuote(array) {
   return quotes[randomNumber];
 };
 
-// Sets interval so quote automatically changes every 20 seconds
-var changeQuote = setInterval(printQuote, 20000);
 
 // String concatenation
 function printQuote() {
@@ -116,8 +114,6 @@ function getRandomColor(array) {
   var randomColor = Math.floor(Math.random() * backgroundColor.length);
   return backgroundColor[randomColor];
 };
-// Sets interval so background changes every 20 seconds
-var changeColor = setInterval(setBackgroundColor, 20000);
 // Runs background color change
 function setBackgroundColor() {
   var generateColor = getRandomColor(backgroundColor);
