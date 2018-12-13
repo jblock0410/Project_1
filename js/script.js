@@ -78,7 +78,6 @@ function getRandomQuote(array) {
   return quotes[randomNumber];
 };
 
-
 // String concatenation
 function printQuote() {
   var generateQuote = getRandomQuote(quotes);
